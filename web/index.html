@@ -12,7 +12,7 @@
 // (a) bindings form: the API base is READ from the environment (injected as a
 // global by the platform/build), never hardcoded. Uninjected -> same-origin.
 (function () {
-  var API_BASE = (window.ASTRA_PATH_API || window.API_BASE || '').replace(/\/$/, '');
+  var API_BASE = (window.API_BASE || '').replace(/\/$/, '');
   document.getElementById('api-base').textContent = 'API_BASE=' + JSON.stringify(API_BASE);
   fetch(API_BASE + '/api/hello')
     .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)); })
